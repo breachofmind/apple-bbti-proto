@@ -1,0 +1,24 @@
+{
+  "name": "apple-bbti-proto",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mike Adamczyk <mike.adamczyk@brightstar.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "http://www.brightstar.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.4",
+    "gsap": "^1.18.2"
+  }
+}
