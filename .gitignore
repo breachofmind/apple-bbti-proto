@@ -6,3 +6,5 @@ Homestead.yaml
 Homestead.json
 *.iml
 .env
+*.DS_Store
+.idea

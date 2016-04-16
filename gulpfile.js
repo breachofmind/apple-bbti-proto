@@ -19,7 +19,8 @@ elixir(function(mix)
         'jquery/dist/jquery.js',
         'angular/angular.js',
         'gsap/src/uncompressed/TweenLite.js',
-        'gsap/src/uncompressed/plugins/ScrollToPlugin.js'
+        'gsap/src/uncompressed/plugins/ScrollToPlugin.js',
+        'jquery-ui.js'
 
     ], 'public/static/lib.js', 'resources/assets/vendor');
 

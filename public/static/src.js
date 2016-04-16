@@ -138,7 +138,7 @@ function scrollTo(id)
 {
     $('html,body').animate({
         scrollTop: $("#"+id).offset().top
-    },300);
+    },1000,'easeInOutExpo');
     //TweenLite.to(window, 2, {scrollTo:{y:}, ease:Power2.easeOut});
 }
 //# sourceMappingURL=src.js.map
