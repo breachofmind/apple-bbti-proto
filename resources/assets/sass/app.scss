@@ -2,6 +2,10 @@ main {margin-bottom:400px;}
 
 .panel-heading h2 {margin:0; padding:5px;}
 
+#modelSearchInput {
+	&.hasError {border:1px solid red}
+}
+
 .step-number {
 	display:inline-block;
 	border-radius: 100%;
@@ -84,7 +88,7 @@ main {margin-bottom:400px;}
 	img {display:block; margin:0 auto;}
 }
 
-#ReviewSelection button {
+#reviewSection button {
 	width:100%; max-width:200px;
 }
 

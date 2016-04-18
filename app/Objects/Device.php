@@ -13,6 +13,7 @@ class Device implements JsonSerializable
      * @var Collection
      */
     static $repository;
+    static $increment = 0;
     static $lookup;
 
     public $brand;
@@ -22,6 +23,7 @@ class Device implements JsonSerializable
     public $wifi;
     public $color;
     public $image;
+    public $id;
 
     /**
      * Boot the device class.
@@ -29,6 +31,7 @@ class Device implements JsonSerializable
      */
     protected function boot()
     {
+        static::$increment ++;
         if (static::$repository instanceof Collection) {
             return;
         }
@@ -52,6 +55,7 @@ class Device implements JsonSerializable
     public function __construct($brand, $model, $capacity, $color)
     {
         $this->boot();
+        $this->id = static::$increment;
 
         $this->brand = Str::ucfirst($brand);
         $this->model = Str::upper($model);
@@ -120,6 +124,7 @@ class Device implements JsonSerializable
     public function toArray()
     {
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'brand' => $this->brand,
             'model' => $this->model,

@@ -9,18 +9,18 @@
 
         <div class="panel-body">
             <div class="row panel-actions">
-                <div class="col-md-6">
+                <div class="col-md-6" ng-class="{'has-error':modelSearchError}">
                     <p>@lang('app.model-select-help')</p>
-                    <input type="text" class="form-control" placeholder="Enter your Model Number (such as A1332)" ng-change="ctrl.modelSearch()" ng-model="modelSearchField">
+                    <input id="modelSearchInput" type="text" class="form-control" placeholder="Enter your Model Number (such as A1332)" ng-change="modelSearch()" ng-model="modelSearchField">
 
                 </div>
             </div>
 
             <ul class="model-list object-list row">
-                <li class="model-item selection-item col-xs-12 col-sm-4 col-lg-3" ng-repeat="(model,item) in ctrl.models" ng-click="ctrl.selectModel(model)" ng-class="{selected:model==selected.model}">
+                <li class="model-item selection-item col-xs-12 col-sm-4 col-lg-3" ng-repeat="device in options_model" ng-click="select_model(device)" ng-class="{selected:device.id == model}">
                     <div class="item-wrapper">
-                        <img ng-src="@{{item.image}}" alt="@{{item.name + " image"}}">
-                        <h3 class="model-name item-name">@{{item.name}}</h3>
+                        <img ng-src="@{{device.image}}" alt="@{{device.name + " image"}}">
+                        <h3 class="model-name item-name">@{{device.name}}</h3>
                     </div>
                 </li>
             </ul>
@@ -29,7 +29,7 @@
 
 
 
-    <section id="CapacitySelection" class="panel panel-default">
+    <section id="capacitySection" class="panel panel-default">
         <div class="panel-heading">
             <h2><span class="step-number">2</span>@lang('app.capacity-select-heading')</h2>
         </div>
@@ -42,21 +42,22 @@
             </div>
 
             <ul class="capacity-list object-list row">
-                <li class="capacity-item selection-item col-xs-12 col-sm-4 col-lg-2" ng-repeat="capacity in capacities" ng-click="ctrl.selectCapacity(capacity)" ng-class="{selected:capacity==selected.capacity}">
+                <li class="capacity-item selection-item col-xs-12 col-sm-4 col-lg-2" ng-repeat="device in options_capacity" ng-click="select_capacity(device)" ng-class="{selected:device.id == capacity}">
                     <div class="item-wrapper">
-                        <h3 class="capacity-name item-name">@{{capacity}} GB</h3>
+                        <h3 class="capacity-name item-name">@{{device.capacity}} GB</h3>
                     </div>
                 </li>
             </ul>
 
-            <div class="alert alert-info" ng-hide="selected.model">
+            <div class="alert alert-info" ng-hide="model">
                 <p>Please choose a device first.</p>
             </div>
         </div>
     </section>
 
 
-    <section id="ColorSelection" class="panel panel-default">
+
+    <section id="colorSection" class="panel panel-default">
         <div class="panel-heading">
             <h2><span class="step-number">3</span>@lang('app.color-select-heading')</h2>
         </div>
@@ -64,35 +65,37 @@
         <div class="panel-body">
 
             <ul class="color-list object-list row">
-                <li class="color-item selection-item col-xs-12 col-sm-4 col-lg-2" ng-repeat="(className,label) in colors" ng-click="ctrl.selectColor(label)" ng-class="{selected:label==selected.color}">
+                <li class="color-item selection-item col-xs-12 col-sm-4 col-lg-2" ng-repeat="device in options_color" ng-click="select_color(device)" ng-class="{selected:device.id == color}">
                     <div class="item-wrapper">
-                        <div class="color-swatch @{{className}}"></div>
-                        <h3 class="color-name item-name">@{{label}}</h3>
+                        <div class="color-swatch @{{device.colorClass}}"></div>
+                        <h3 class="color-name item-name">@{{device.color}}</h3>
                     </div>
                 </li>
             </ul>
 
-            <div class="alert alert-info" ng-hide="selected.capacity && selected.model">
+            <div class="alert alert-info" ng-hide="capacity && model">
                 <p>Please choose a device and capacity first.</p>
             </div>
         </div>
     </section>
 
 
-    <section id="ReviewSelection" class="panel panel-default">
+
+
+    <section id="reviewSection" class="panel panel-default">
         <div class="panel-heading">
             <h2><span class="step-number">4</span>@lang('app.review-select-heading')</h2>
         </div>
 
         <div class="panel-body">
-            <div class="selected-device" ng-show="ctrl.isComplete()">
+            <div class="selected-device" ng-show="selected">
                 <p>You selected:</p>
 
-                <img ng-src="@{{ ctrl.models[selected.model].image }}" alt="Selected Device">
-                <h4>@{{ctrl.getSelectedDevice()}}</h4>
+                <img ng-src="@{{ selected.get('image') }}" alt="Selected Device">
+                <h4>@{{ selected.getName() }}</h4>
             </div>
 
-            <button ng-disabled="! ctrl.isComplete()" class="btn btn-success btn-lg center-block" ng-click="ctrl.comingSoon()">Continue</button>
+            <button ng-disabled="! selected" class="btn btn-success btn-lg center-block" ng-click="ctrl.comingSoon()">Continue</button>
         </div>
 
     </section>

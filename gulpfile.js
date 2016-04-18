@@ -17,6 +17,8 @@ elixir(function(mix)
     mix.sass('app.scss');
     mix.scripts([
         'jquery/dist/jquery.js',
+        'underscore/underscore.js',
+        'backbone/backbone.js',
         'angular/angular.js',
         'gsap/src/uncompressed/TweenLite.js',
         'gsap/src/uncompressed/plugins/ScrollToPlugin.js',
@@ -25,7 +27,11 @@ elixir(function(mix)
     ], 'public/static/lib.js', 'resources/assets/vendor');
 
     mix.scripts([
-        'main.js'
+        'util.js',
+        'device.js',
+        'main.js',
+        'app.js'
+
     ], 'public/static/src.js');
 
     mix.livereload();
