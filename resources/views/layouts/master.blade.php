@@ -20,11 +20,42 @@
 </head>
 <body>
 
+    <header id="Header">
+        <div class="container">
+            <div class="col-sm-12 col-md-4">
+                <img src="/images/logo.png" alt="Brightstar Logo" class="logo">
+            </div>
+
+            <div class="col-sm-12 col-md-8 text-right">
+                <h1>Re-use & Recycle Portal</h1>
+            </div>
+        </div>
+    </header>
+
     <main ng-app="app" ng-controller="AppController as ctrl" class="container">
 
         @yield('content')
 
     </main>
+
+
+    <footer id="Footer">
+        <div class="container">
+            <ul class="link-list object-list">
+                <li><a href="#">About Brightstar</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <div class="fine-print">
+                <p>Copyright © {{date('Y')}} Brightstar US, Inc. Brightstar is a registered trademark of Brightstar Corp. Inc. All rights reserved.</p>
+                <p>Service provided by Brightstar US, Inc.</p>
+            </div>
+        </div>
+
+    </footer>
 
 </body>
 </html>

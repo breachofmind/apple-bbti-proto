@@ -1,3 +1,30 @@
+#Header {
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 30px;
+  background: #efefef; }
+  #Header h1 {
+    margin: 0;
+    margin-top: 15px;
+    color: #7d7d7d;
+    font-weight: normal; }
+
+#Footer {
+  padding: 30px 0;
+  background: #2e2e2e; }
+  #Footer .link-list {
+    text-align: center;
+    margin-bottom: 20px; }
+  #Footer .link-list a {
+    color: white; }
+  #Footer p {
+    color: gray;
+    text-align: center; }
+
+.logo {
+  height: 72px;
+  width: auto; }
+
 main {
   margin-bottom: 400px; }
 
@@ -8,11 +35,14 @@ main {
 #modelSearchInput.hasError {
   border: 1px solid red; }
 
-.selection-panel .object-list {
-  min-height: 60px; }
-
-.selection-panel.processing .object-list {
-  background: url("/images/preloader-bar.gif") no-repeat center center; }
+.selection-panel {
+  transition: all 250ms; }
+  .selection-panel .object-list {
+    min-height: 30px; }
+  .selection-panel.processing .object-list {
+    background: url("/images/preloader-bar.gif") no-repeat center center; }
+  .selection-panel.not-ready {
+    opacity: 0.5; }
 
 .step-number {
   display: inline-block;
@@ -32,6 +62,10 @@ main {
   margin: 0;
   padding: 0;
   list-style: none; }
+
+.link-list li {
+  display: inline-block;
+  padding: 5px 10px; }
 
 .panel-actions {
   margin-bottom: 15px; }

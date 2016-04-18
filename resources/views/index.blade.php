@@ -29,7 +29,7 @@
 
 
 
-    <section id="capacitySection" class="panel panel-default selection-panel">
+    <section id="capacitySection" class="panel panel-default selection-panel" ng-class="{'not-ready':!model}">
         <div class="panel-heading">
             <h2><span class="step-number">2</span>@lang('app.capacity-select-heading')</h2>
         </div>
@@ -57,7 +57,7 @@
 
 
 
-    <section id="colorSection" class="panel panel-default selection-panel">
+    <section id="colorSection" class="panel panel-default selection-panel" ng-class="{'not-ready':!model || !capacity}">
         <div class="panel-heading">
             <h2><span class="step-number">3</span>@lang('app.color-select-heading')</h2>
         </div>
@@ -82,7 +82,7 @@
 
 
     <form id="inspectionForm" name="inspectionForm" ng-controller="FormController">
-    <section id="reviewSection" class="panel panel-default selection-panel">
+    <section id="reviewSection" class="panel panel-default selection-panel" ng-class="{'not-ready':!selected}">
 
         <div class="panel-heading">
             <h2><span class="step-number">4</span>@lang('app.review-select-heading')</h2>

@@ -6,6 +6,7 @@
      */
     var lookup = new DeviceCollection();
 
+
     /**
      * Steps available for this app. Can be expanded if needed!
      * The names correspond to a property on the Device model.
@@ -76,7 +77,7 @@
 
         /**
          * Search for a model in the lookup array.
-         * @returns void
+         * @returns boolean
          */
         $scope.modelSearch = function()
         {
@@ -85,13 +86,12 @@
             for(var i=0; i<lookup.length; i++)
             {
                 var device = lookup.models[i];
-                if (value === device.get('model')) {
+                if (device.get('models').indexOf(value) > -1) {
                     $scope.select_model(device);
-                    $scope.modelSearchError = false;
-                    return;
+                    return $scope.modelSearchError = false;
                 }
             }
-            $scope.modelSearchError = value.length > 1;
+            return $scope.modelSearchError = value.length > 1;
         };
 
         /**

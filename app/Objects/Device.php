@@ -14,6 +14,11 @@ class Device implements JsonSerializable
      */
     static $repository;
     static $increment = 0;
+
+    /**
+     * Device lookup.
+     * @var Collection
+     */
     static $lookup;
 
     public $brand;
@@ -24,6 +29,9 @@ class Device implements JsonSerializable
     public $color;
     public $image;
     public $id;
+
+    // Other models that have the same model name.
+    public $models = [];
 
     /**
      * Boot the device class.
@@ -62,6 +70,9 @@ class Device implements JsonSerializable
         $this->capacity($capacity)->color($color);
 
         $this->name = static::$lookup->get($model);
+        $this->models = static::$lookup->filter(function($name,$model) {
+            return $name === $this->name;
+        });
 
         static::$repository[] = $this;
     }
@@ -131,7 +142,8 @@ class Device implements JsonSerializable
             'color' => $this->color,
             'colorClass' => Str::slug($this->color),
             'capacity' => $this->capacity,
-            'image' => url('images/devices/'.Str::slug($this->name).'.jpg')
+            'image' => url('images/devices/'.Str::slug($this->name).'.jpg'),
+            'models' => $this->models->keys()->toArray()
         ];
     }
 

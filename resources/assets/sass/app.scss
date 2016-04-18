@@ -1,3 +1,19 @@
+#Header {
+	padding:10px;
+	border-bottom:1px solid lightgray;
+	margin-bottom:30px;
+	background:#efefef;
+	h1 {margin:0; margin-top:15px; color: #7d7d7d; font-weight:normal;}
+}
+#Footer {
+	padding:30px 0;
+	background: #2e2e2e;
+	.link-list {text-align:center; margin-bottom:20px;}
+	.link-list a {color:white;}
+	p {color:gray; text-align:center;}
+}
+.logo {height:72px; width:auto;}
+
 main {margin-bottom:400px;}
 
 .panel-heading h2 {margin:0; padding:5px;}
@@ -7,10 +23,12 @@ main {margin-bottom:400px;}
 }
 
 .selection-panel {
-	.object-list {min-height:60px;}
+	transition:all 250ms;
+	.object-list {min-height:30px;}
 	&.processing .object-list {
 		background:url('/images/preloader-bar.gif') no-repeat center center;
 	}
+	&.not-ready { opacity:0.5;}
 }
 
 .step-number {
@@ -25,6 +43,8 @@ main {margin-bottom:400px;}
 .object-list {
 	margin:0; padding:0; list-style: none;
 }
+
+.link-list li {display:inline-block; padding:5px 10px;}
 
 .panel-actions {
 	margin-bottom:15px;
