@@ -1,11 +1,19 @@
 (function () {
 
+    /**
+     * The Device model.
+     * @type Backbone.Model
+     */
     var Device = Backbone.Model.extend({
 
         defaults: {
             brand: "Apple"
         },
 
+        /**
+         * Returns the computed name for the device.
+         * @returns {string}
+         */
         getName: function()
         {
             return [
@@ -18,7 +26,10 @@
     });
 
 
-
+    /**
+     * The Device collection class.
+     * @type Backbone.Collection
+     */
     var DeviceCollection = Backbone.Collection.extend({
         model: Device,
 
@@ -34,16 +45,29 @@
             return out;
         },
 
+        /**
+         * Returns all devices that have the same model name.
+         * @param name string
+         * @returns {Backbone.Collection}
+         */
         getModel: function(name)
         {
             return new DeviceCollection(this.where({model: name}));
         },
 
+        /**
+         * Returns all unique models.
+         * @returns {DeviceCollection}
+         */
         getModels: function()
         {
             return this.unique('model');
         },
 
+        /**
+         * Returns all unique capacities in the collection.
+         * @returns {Array}
+         */
         getCapacities: function()
         {
             return this.unique('capacity').map(function(item) {
@@ -51,11 +75,20 @@
             });
         },
 
+        /**
+         * Return all unique colors in the collection.
+         * @returns {DeviceCollection}
+         */
         getColors: function()
         {
             return this.unique('color');
         },
 
+        /**
+         * Returns unique values with the given key.
+         * @param key string
+         * @returns {Backbone.Collection}
+         */
         unique: function(key)
         {
             var out = [];
@@ -76,6 +109,8 @@
             return new DeviceCollection(out);
         }
     });
+
+
 
     window.Device = Device;
     window.DeviceCollection = DeviceCollection;

@@ -1,3 +1,8 @@
+/**
+ * Converts the array to a hash map (POJO)
+ * @param callback that returns [key,value]
+ * @returns {{}}
+ */
 Array.prototype.hash = function(callback)
 {
     var out = {};
@@ -11,12 +16,20 @@ Array.prototype.hash = function(callback)
 };
 (function () {
 
+    /**
+     * The Device model.
+     * @type Backbone.Model
+     */
     var Device = Backbone.Model.extend({
 
         defaults: {
             brand: "Apple"
         },
 
+        /**
+         * Returns the computed name for the device.
+         * @returns {string}
+         */
         getName: function()
         {
             return [
@@ -29,7 +42,10 @@ Array.prototype.hash = function(callback)
     });
 
 
-
+    /**
+     * The Device collection class.
+     * @type Backbone.Collection
+     */
     var DeviceCollection = Backbone.Collection.extend({
         model: Device,
 
@@ -45,16 +61,29 @@ Array.prototype.hash = function(callback)
             return out;
         },
 
+        /**
+         * Returns all devices that have the same model name.
+         * @param name string
+         * @returns {Backbone.Collection}
+         */
         getModel: function(name)
         {
             return new DeviceCollection(this.where({model: name}));
         },
 
+        /**
+         * Returns all unique models.
+         * @returns {DeviceCollection}
+         */
         getModels: function()
         {
             return this.unique('model');
         },
 
+        /**
+         * Returns all unique capacities in the collection.
+         * @returns {Array}
+         */
         getCapacities: function()
         {
             return this.unique('capacity').map(function(item) {
@@ -62,11 +91,20 @@ Array.prototype.hash = function(callback)
             });
         },
 
+        /**
+         * Return all unique colors in the collection.
+         * @returns {DeviceCollection}
+         */
         getColors: function()
         {
             return this.unique('color');
         },
 
+        /**
+         * Returns unique values with the given key.
+         * @param key string
+         * @returns {Backbone.Collection}
+         */
         unique: function(key)
         {
             var out = [];
@@ -87,6 +125,8 @@ Array.prototype.hash = function(callback)
             return new DeviceCollection(out);
         }
     });
+
+
 
     window.Device = Device;
     window.DeviceCollection = DeviceCollection;
@@ -118,6 +158,12 @@ Array.prototype.hash = function(callback)
 
     app.controller('AppController', ['$http','$scope', AppController]);
 
+    /**
+     * The Application Controller instance.
+     * @param $http
+     * @param $scope
+     * @constructor
+     */
     function AppController($http,$scope)
     {
         /**
@@ -179,9 +225,10 @@ Array.prototype.hash = function(callback)
                 $scope[step] = object.id;
                 if (next) {
                     $scope["options_"+next] = getNext(i);
-                } else {
-                    $scope.selected = getSelected();
                 }
+
+                $scope.selected = getSelected();
+
                 scrollTo(next ? next : 'review');
             }
         });

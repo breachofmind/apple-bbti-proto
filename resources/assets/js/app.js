@@ -15,6 +15,12 @@
 
     app.controller('AppController', ['$http','$scope', AppController]);
 
+    /**
+     * The Application Controller instance.
+     * @param $http
+     * @param $scope
+     * @constructor
+     */
     function AppController($http,$scope)
     {
         /**
@@ -76,9 +82,10 @@
                 $scope[step] = object.id;
                 if (next) {
                     $scope["options_"+next] = getNext(i);
-                } else {
-                    $scope.selected = getSelected();
                 }
+
+                $scope.selected = getSelected();
+
                 scrollTo(next ? next : 'review');
             }
         });

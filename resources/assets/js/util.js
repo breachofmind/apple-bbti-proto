@@ -1,3 +1,8 @@
+/**
+ * Converts the array to a hash map (POJO)
+ * @param callback that returns [key,value]
+ * @returns {{}}
+ */
 Array.prototype.hash = function(callback)
 {
     var out = {};
