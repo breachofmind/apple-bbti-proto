@@ -20,3 +20,8 @@ Route::get('devices', function() {
         'Content-Type' => 'application/json'
     ]);
 });
+
+Route::post('evaluate', function(\Illuminate\Http\Request $request){
+
+    return $request->input();
+});

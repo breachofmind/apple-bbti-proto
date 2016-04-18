@@ -134,7 +134,32 @@ Array.prototype.hash = function(callback)
 (function () {
 
     // Main application.
-    window.app = angular.module('app', []);
+    var app = angular.module('app', []);
+
+    function setupAjaxHeaders()
+    {
+        var csrf = $('meta[name="csrf_token"]').attr('content');
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': csrf
+            }
+        });
+
+        app.factory('httpRequestInterceptor', function(){
+            return {request: function(config) {
+                config.headers['X-CSRF-TOKEN'] = csrf;
+                return config;
+            }}
+        });
+        app.config(function($httpProvider) {
+            $httpProvider.interceptors.push('httpRequestInterceptor');
+        });
+    }
+
+    window.app = app;
+
+    setupAjaxHeaders();
 
 })();
 
@@ -173,8 +198,10 @@ Array.prototype.hash = function(callback)
         $scope.submit = function()
         {
             if ($scope.inspectionForm.$valid) {
-                console.log(getPayload());
-                alert('Submitted, see console for POST payload');
+                $http.post('/evaluate', getPayload()).success(function(response) {
+                    console.log(response);
+                });
+                //alert('Submitted, see console for POST payload');
             }
         };
 
@@ -182,7 +209,8 @@ Array.prototype.hash = function(callback)
         {
             var fields = ['q1','q2','q3','q4','q5','carrier'];
             var out = fields.hash(function(item) {
-                return [item, $scope[item]];
+                var val = $scope[item] == "1" || $scope[item] == "0" ? $scope[item] === "1" : $scope[item]; // convert to boolean.
+                return [item, val];
             });
             out.device = $scope.$parent.selected.toJSON();
             return out;

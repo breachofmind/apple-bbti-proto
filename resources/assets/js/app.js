@@ -30,8 +30,10 @@
         $scope.submit = function()
         {
             if ($scope.inspectionForm.$valid) {
-                console.log(getPayload());
-                alert('Submitted, see console for POST payload');
+                $http.post('/evaluate', getPayload()).success(function(response) {
+                    console.log(response);
+                });
+                //alert('Submitted, see console for POST payload');
             }
         };
 
@@ -39,7 +41,8 @@
         {
             var fields = ['q1','q2','q3','q4','q5','carrier'];
             var out = fields.hash(function(item) {
-                return [item, $scope[item]];
+                var val = $scope[item] == "1" || $scope[item] == "0" ? $scope[item] === "1" : $scope[item]; // convert to boolean.
+                return [item, val];
             });
             out.device = $scope.$parent.selected.toJSON();
             return out;
