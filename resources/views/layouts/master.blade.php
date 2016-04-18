@@ -22,12 +22,12 @@
 
     <header id="Header">
         <div class="container">
-            <div class="col-sm-12 col-md-4">
+            <div class="col-xs-12 col-sm-4">
                 <img src="/images/logo.png" alt="Brightstar Logo" class="logo">
             </div>
 
-            <div class="col-sm-12 col-md-8 text-right">
-                <h1>Re-use & Recycle Portal</h1>
+            <div class="col-xs-12 col-sm-8">
+                <h1 class="app-title">Re-use & Recycle Portal</h1>
             </div>
         </div>
     </header>

@@ -24,6 +24,10 @@
                     </div>
                 </li>
             </ul>
+            <div class="alert alert-warning">
+                <p>iPhone, iPhone 3G, iPhone 3GS devices are no longer included in this program.
+                    Please <a href="http://www.apple.com/recycling/">click here</a> for information on how to responsibly recycle or reuse your device.</p>
+            </div>
         </div>
     </section>
 

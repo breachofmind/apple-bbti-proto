@@ -21,9 +21,16 @@ main {margin-bottom:400px;}
 #modelSearchInput {
 	&.hasError {border:1px solid red}
 }
-
+.app-title {text-align:right;}
+@media screen and (max-width:768px) {
+	.app-title{text-align:left; font-size:2em;}
+}
+@media screen and (max-width:500px) {
+	.app-title{text-align:center;}
+}
 .selection-panel {
 	transition:all 250ms;
+	.alert-warning {margin-top:15px;}
 	.object-list {min-height:30px;}
 	&.processing .object-list {
 		background:url('/images/preloader-bar.gif') no-repeat center center;
