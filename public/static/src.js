@@ -155,8 +155,39 @@ Array.prototype.hash = function(callback)
      * @type {string[]}
      */
     var steps = ['model','capacity','color'];
+    var questions = 5;
 
     app.controller('AppController', ['$http','$scope', AppController]);
+
+    app.controller('FormController', ['$http','$scope', FormController]);
+
+    function FormController($http,$scope)
+    {
+        for (var i=1; i<=questions; i++)
+        {
+            $scope["q"+i] = null;
+            $scope["carrier"] = null;
+        }
+
+        $scope.submit = function()
+        {
+            if ($scope.inspectionForm.$valid) {
+                console.log(getPayload());
+                alert('Submitted, see console for POST payload');
+            }
+        };
+
+        function getPayload()
+        {
+            var fields = ['q1','q2','q3','q4','q5','carrier'];
+            var out = fields.hash(function(item) {
+                return [item, $scope[item]];
+            });
+            out.device = $scope.$parent.selected.toJSON();
+            return out;
+        }
+
+    }
 
     /**
      * The Application Controller instance.
@@ -166,6 +197,8 @@ Array.prototype.hash = function(callback)
      */
     function AppController($http,$scope)
     {
+        $scope.isLoading = true;
+
         /**
          * Variable for the model search input.
          * @type {string}
@@ -246,24 +279,6 @@ Array.prototype.hash = function(callback)
 
 
         /**
-         * User can continue... // TODO
-         */
-        this.comingSoon = function()
-        {
-            alert('thanks');
-        };
-
-
-        // Do the deed.
-        $http.get('/devices', null).success(function(data){
-
-            lookup.reset(data);
-            $scope["options_"+steps[0]] = lookup.unique(steps[0]).toJSON();
-
-        }.bind(this));
-
-
-        /**
          * Return the next group of devices (unique attributes).
          * @param n int
          * @returns {Array}
@@ -279,7 +294,7 @@ Array.prototype.hash = function(callback)
                 search[key] = lookup.get($scope[key]).get(key);
                 n --;
             }
-            return  new DeviceCollection (lookup.where(search)).unique(nextKey).toJSON();
+            return new DeviceCollection (lookup.where(search)).unique(nextKey).toJSON();
         }
 
         /**
@@ -295,6 +310,16 @@ Array.prototype.hash = function(callback)
 
             return lookup.get(last);
         }
+
+
+        // Do the deed.
+        $http.get('/devices', null).success(function(data){
+
+            lookup.reset(data);
+            $scope["options_"+steps[0]] = lookup.unique(steps[0]).toJSON();
+            $scope.isLoading = false;
+
+        }.bind(this));
     }
 
 
