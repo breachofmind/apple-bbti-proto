@@ -13,36 +13,57 @@
      * @type {string[]}
      */
     var steps = ['model','capacity','color'];
-    var questions = 5;
+
+    /**
+     * Questions to get values for.
+     * @type {string[]}
+     */
+    var fields = ['q1','q2','q3','q4','q5','carrier'];
 
     app.controller('AppController', ['$http','$scope', AppController]);
 
     app.controller('FormController', ['$http','$scope', FormController]);
 
+    /**
+     * Controls the
+     * @param $http
+     * @param $scope
+     * @constructor
+     */
     function FormController($http,$scope)
     {
-        for (var i=1; i<=questions; i++)
-        {
-            $scope["q"+i] = null;
-            $scope["carrier"] = null;
-        }
+        $scope.response = null;
 
+        // Initial setup.
+        fields.forEach(function(field)
+        {
+            $scope[field] = null;
+        });
+
+        /**
+         * Submit the form, if valid.
+         * @returns void
+         */
         $scope.submit = function()
         {
             if ($scope.inspectionForm.$valid) {
                 $http.post('/evaluate', getPayload()).success(function(response) {
-                    console.log(response);
+                    scrollTo('value');
+                    $scope.response = response;
                 });
-                //alert('Submitted, see console for POST payload');
             }
         };
 
+        /**
+         * Return a JSON object containing the POST payload.
+         * @returns {{}}
+         */
         function getPayload()
         {
-            var fields = ['q1','q2','q3','q4','q5','carrier'];
-            var out = fields.hash(function(item) {
-                var val = $scope[item] == "1" || $scope[item] == "0" ? $scope[item] === "1" : $scope[item]; // convert to boolean.
-                return [item, val];
+            var out = fields.hash(function(field) {
+                var str = $scope[field];
+                var val = str == "1" || str == "0" ? str === "1" : str; // convert to boolean.
+                return [field, val];
             });
             out.device = $scope.$parent.selected.toJSON();
             return out;

@@ -23,5 +23,9 @@ Route::get('devices', function() {
 
 Route::post('evaluate', function(\Illuminate\Http\Request $request){
 
-    return $request->input();
+    return [
+        'input' => $request->input(),
+        'valuation' => floor(rand(50,300)),
+        'valuationType' => 'Apple Store Gift Card'
+    ];
 });

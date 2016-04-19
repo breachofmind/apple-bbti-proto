@@ -3,6 +3,10 @@
     // Main application.
     var app = angular.module('app', []);
 
+    /**
+     * Attaches a crsf token to all AJAX headers.
+     * @returns void
+     */
     function setupAjaxHeaders()
     {
         var csrf = $('meta[name="csrf_token"]').attr('content');

@@ -1,3 +1,6 @@
+main {
+  padding-bottom: 60px; }
+
 #Header {
   padding: 10px;
   border-bottom: 1px solid lightgray;
@@ -11,7 +14,8 @@
 
 #Footer {
   padding: 30px 0;
-  background: #2e2e2e; }
+  background: #2e2e2e;
+  height: 50vh; }
   #Footer .link-list {
     text-align: center;
     margin-bottom: 20px; }
@@ -24,9 +28,6 @@
 .logo {
   height: 72px;
   width: auto; }
-
-main {
-  margin-bottom: 400px; }
 
 .panel-heading h2 {
   margin: 0;
@@ -200,6 +201,27 @@ main {
   padding: 15px;
   min-height: 180px;
   border: 3px solid lightgray; }
+
+#valueSection .panel-body {
+  padding: 60px 15px; }
+
+.valuation-container {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  text-align: center; }
+
+.valuation-type {
+  color: black;
+  font-size: 1.75em; }
+
+.valuation-disclaimer {
+  text-align: center; }
+
+.valuation-amount:after,
+.valuation-disclaimer:before {
+  content: "*";
+  color: red; }
 
 @media screen and (min-width: 1000px) {
   .selected-device {
