@@ -226,6 +226,9 @@ main {
   .question-response {
     text-align: center; } }
 
+.menu-container {
+  text-align: right; }
+
 .logo {
   height: 72px;
   width: auto;
@@ -236,7 +239,10 @@ main {
   width: auto; }
 
 .hamburger {
-  display: inline-block; }
+  display: inline-block;
+  font-size: 48px;
+  color: #2f2f2f;
+  margin-left: 15px; }
 
 @media screen and (min-width: 960px) {
   .hamburger {
@@ -254,14 +260,6 @@ main {
   margin: 0;
   line-height: 5px;
   display: inline-block; }
-
-.menu-container {
-  text-align: right; }
-
-.hamburger {
-  font-size: 48px;
-  color: #2f2f2f;
-  margin-left: 30px; }
 
 .menu {
   display: none;
@@ -286,6 +284,8 @@ body.menu-open .menu {
     left: 0;
     right: 0;
     z-index: 500; }
+  .app-title {
+    font-size: 20px; }
   .menu {
     text-align: center;
     position: fixed;

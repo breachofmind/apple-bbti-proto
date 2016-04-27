@@ -188,10 +188,10 @@ main {
 //-----------------------------------
 // Menu
 //-----------------------------------
-
+.menu-container {text-align:right;}
 .logo {height:72px; width:auto; display:none;}
 .logo-sm {height:50px; width:auto;}
-.hamburger {display:inline-block;}
+.hamburger {display:inline-block; font-size:48px; color: #2f2f2f; margin-left:15px;}
 
 @media screen and (min-width:960px) {
 	.hamburger {display:none;}
@@ -207,8 +207,7 @@ main {
 	line-height:5px;
 	display:inline-block;
 }
-.menu-container {text-align:right;}
-.hamburger {font-size:48px; color: #2f2f2f; margin-left:30px;}
+
 .menu {
 	display:none;
 	padding:0; margin:0;
@@ -223,8 +222,8 @@ body.menu-open {
 {
 	main {padding-top:100px;}
 	#Header {position:fixed; top:0; left:0; right:0; z-index:500;}
+	.app-title {font-size:20px;}
 	.menu {
-
 		text-align:center;
 		position:fixed; top:70px; right:0; left:0; background: #3f3f3f;
 		li {border-bottom: 1px solid #636363 }
