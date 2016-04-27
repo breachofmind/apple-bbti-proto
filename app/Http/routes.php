@@ -12,6 +12,7 @@ use Illuminate\Http\Response;
 */
 
 Route::get('/', function () {
+
     return view('index');
 });
 

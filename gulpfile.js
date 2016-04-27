@@ -30,7 +30,8 @@ elixir(function(mix)
         'util.js',
         'device.js',
         'main.js',
-        'app.js'
+        'app.js',
+        'menu.js'
 
     ], 'public/static/src.js');
 

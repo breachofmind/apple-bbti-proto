@@ -1,7 +1,7 @@
 <ul class="question-list object-list row">
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q1" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Power</h4>
@@ -9,14 +9,14 @@
             </div>
 
             <div class="question-response">
-                <input type="radio" name="question_power" id="q1_y" value="1" required ng-model="q1"><label for="q1_y" class="yay">Yes</label>
-                <input type="radio" name="question_power" id="q1_n" value="0" required ng-model="q1"><label for="q1_n" class="nay">No</label>
+                <input type="radio" name="question_power" id="q1_y" value="1" required ng-model="q1" ng-change="nextQuestion('q2')"><label for="q1_y" class="yay">Yes</label>
+                <input type="radio" name="question_power" id="q1_n" value="0" required ng-model="q1" ng-change="nextQuestion('q2')"><label for="q1_n" class="nay">No</label>
             </div>
         </div>
     </li>
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q2" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Enclosure</h4>
@@ -24,14 +24,14 @@
             </div>
 
             <div class="question-response">
-                <input type="radio" name="question_enclosure" id="q2_y" value="1" required ng-model="q2"><label for="q2_y" class="yay">Yes</label>
-                <input type="radio" name="question_enclosure" id="q2_n" value="0" required ng-model="q2"><label for="q2_n" class="nay">No</label>
+                <input type="radio" name="question_enclosure" id="q2_y" value="1" required ng-model="q2" ng-change="nextQuestion('q3')"><label for="q2_y" class="yay">Yes</label>
+                <input type="radio" name="question_enclosure" id="q2_n" value="0" required ng-model="q2" ng-change="nextQuestion('q3')"><label for="q2_n" class="nay">No</label>
             </div>
         </div>
     </li>
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q3" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Free from Liquid Damage</h4>
@@ -39,14 +39,14 @@
             </div>
 
             <div class="question-response">
-                <input type="radio" name="question_liquid" id="q3_y" value="1" required ng-model="q3"><label for="q3_y" class="yay">Yes</label>
-                <input type="radio" name="question_liquid" id="q3_n" value="0" required ng-model="q3"><label for="q3_n" class="nay">No</label>
+                <input type="radio" name="question_liquid" id="q3_y" value="1" required ng-model="q3" ng-change="nextQuestion('q4')"><label for="q3_y" class="yay">Yes</label>
+                <input type="radio" name="question_liquid" id="q3_n" value="0" required ng-model="q3" ng-change="nextQuestion('q4')"><label for="q3_n" class="nay">No</label>
             </div>
         </div>
     </li>
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q4" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Display</h4>
@@ -54,14 +54,14 @@
             </div>
 
             <div class="question-response">
-                <input type="radio" name="question_display" id="q4_y" value="1" required ng-model="q4"><label for="q4_y" class="yay">Yes</label>
-                <input type="radio" name="question_display" id="q4_n" value="0" required ng-model="q4"><label for="q4_n" class="nay">No</label>
+                <input type="radio" name="question_display" id="q4_y" value="1" required ng-model="q4" ng-change="nextQuestion('q5')"><label for="q4_y" class="yay">Yes</label>
+                <input type="radio" name="question_display" id="q4_n" value="0" required ng-model="q4" ng-change="nextQuestion('q5')"><label for="q4_n" class="nay">No</label>
             </div>
         </div>
     </li>
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q5" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Buttons</h4>
@@ -69,14 +69,14 @@
             </div>
 
             <div class="question-response">
-                <input type="radio" name="question_buttons" id="q5_y" value="1" required ng-model="q5"><label for="q5_y" class="yay">Yes</label>
-                <input type="radio" name="question_buttons" id="q5_n" value="0" required ng-model="q5"><label for="q5_n" class="nay">No</label>
-            </div>
+                <input type="radio" name="question_buttons" id="q5_y" value="1" required ng-model="q5" ng-change="nextQuestion('q6')"><label for="q5_y" class="yay">Yes</label>
+                <input type="radio" name="question_buttons" id="q5_n" value="0" required ng-model="q5" ng-change="nextQuestion('q6')"><label for="q5_n" class="nay">No</label>
+            </6iv>
         </div>
     </li>
 
 
-    <li class="question-item col-sm-12 col-md-6">
+    <li id="q6" class="question-item col-sm-12 col-md-6">
         <div class="question-wrapper">
             <div class="question-content">
                 <h4 class="question-title">Carrier Locked</h4>

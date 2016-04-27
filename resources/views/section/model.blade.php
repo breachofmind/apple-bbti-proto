@@ -4,13 +4,13 @@
     </div>
 
     <div class="panel-body">
-        <div class="row panel-actions">
-            <div class="col-md-6" ng-class="{'has-error':modelSearchError}">
-                <p>@lang('app.model-select-help')</p>
-                <input id="modelSearchInput" type="text" class="form-control" placeholder="Enter your Model Number (such as A1332)" ng-change="modelSearch()" ng-model="modelSearchField">
+        {{--<div class="row panel-actions">--}}
+            {{--<div class="col-md-6" ng-class="{'has-error':modelSearchError}">--}}
+                {{--<p>@lang('app.model-select-help')</p>--}}
+                {{--<input id="modelSearchInput" type="text" class="form-control" placeholder="Enter your Model Number (such as A1332)" ng-change="modelSearch()" ng-model="modelSearchField">--}}
 
-            </div>
-        </div>
+            {{--</div>--}}
+        {{--</div>--}}
 
         <div class="alert alert-warning">
             <p>iPhone, iPhone 3G, iPhone 3GS devices are no longer included in this program.

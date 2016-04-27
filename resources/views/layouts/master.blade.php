@@ -19,44 +19,18 @@
         </script>
     @endif
 </head>
-<body>
+<body ng-app="app" ng-controller="MenuController as menu" ng-class="{'menu-open':isOpen}">
 
-    <header id="Header">
-        <div class="container">
-            <div class="col-xs-12 col-sm-4">
-                <img src="/images/logo.png" alt="Brightstar Logo" class="logo">
-            </div>
+    @include('common.header')
 
-            <div class="col-xs-12 col-sm-8">
-                <h1 class="app-title">Re-use & Recycle Portal</h1>
-            </div>
-        </div>
-    </header>
 
-    <main ng-app="app" ng-controller="AppController as ctrl" class="container">
+    <main ng-controller="AppController as ctrl" class="container">
 
         @yield('content')
 
     </main>
 
-
-    <footer id="Footer">
-        <div class="container">
-            <ul class="link-list object-list">
-                <li><a href="#">About Brightstar</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-
-            <div class="fine-print">
-                <p>Copyright © {{date('Y')}} Brightstar US, Inc. Brightstar is a registered trademark of Brightstar Corp. Inc. All rights reserved.</p>
-                <p>Service provided by Brightstar US, Inc.</p>
-            </div>
-        </div>
-
-    </footer>
+    @include('common.footer')
 
 </body>
 </html>

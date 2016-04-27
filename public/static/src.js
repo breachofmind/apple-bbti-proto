@@ -172,6 +172,9 @@ Array.prototype.hash = function(callback)
 
 (function () {
 
+    var menuOffsetAt = 960;
+    var menuOffset = 80;
+
     /**
      * The master lookup collection of devices.
      * @type DeviceCollection
@@ -220,7 +223,7 @@ Array.prototype.hash = function(callback)
         {
             if ($scope.inspectionForm.$valid) {
                 $http.post('/evaluate', getPayload()).success(function(response) {
-                    scrollTo('value');
+                    scrollTo('valueSection');
                     $scope.response = response;
                 });
             }
@@ -315,7 +318,7 @@ Array.prototype.hash = function(callback)
 
                 $scope.selected = getSelected();
 
-                scrollTo(next ? next : 'review');
+                scrollTo(next ? next+"Section" : 'reviewSection');
             }
         });
 
@@ -330,6 +333,15 @@ Array.prototype.hash = function(callback)
             })
         };
 
+        /**
+         * Move to the next area.
+         * @param id string
+         * @returns void
+         */
+        $scope.nextQuestion = function(id)
+        {
+            scrollTo(id, 768);
+        };
 
         /**
          * Return the next group of devices (unique attributes).
@@ -379,15 +391,43 @@ Array.prototype.hash = function(callback)
     /**
      * Scroll to the next section.
      * @param id string
+     * @param minWidth Number
      * @returns void
      */
-    function scrollTo(id)
+    function scrollTo(id,minWidth)
     {
+        var isMin = menuOffsetAt > window.innerWidth;
+        if (minWidth && minWidth < window.innerWidth) {
+            return;
+        }
         $('html,body').animate({
-            scrollTop: $("#"+id+"Section").offset().top
+            scrollTop: $("#"+id).offset().top - (isMin ? menuOffset : 0)
         },1000,'easeInOutExpo');
         //TweenLite.to(window, 2, {scrollTo:{y:}, ease:Power2.easeOut});
     }
 
 })();
+(function (app) {
+
+    app.controller("MenuController", ['$scope', MenuController]);
+
+    function MenuController($scope)
+    {
+        $scope.isOpen = false;
+
+        this.toggle = function(bool)
+        {
+            if (! arguments.length) {
+                return $scope.isOpen = ! $scope.isOpen;
+            }
+            return $scope.isOpen = bool;
+        };
+
+        this.open = function()
+        {
+            $scope.isOpen = true;
+        }
+    }
+
+})(window.app);
 //# sourceMappingURL=src.js.map

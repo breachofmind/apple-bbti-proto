@@ -6,11 +6,6 @@ main {
   border-bottom: 1px solid lightgray;
   margin-bottom: 30px;
   background: #efefef; }
-  #Header h1 {
-    margin: 0;
-    margin-top: 15px;
-    color: #7d7d7d;
-    font-weight: normal; }
 
 #Footer {
   padding: 30px 0;
@@ -25,28 +20,12 @@ main {
     color: gray;
     text-align: center; }
 
-.logo {
-  height: 72px;
-  width: auto; }
-
 .panel-heading h2 {
   margin: 0;
   padding: 5px; }
 
 #modelSearchInput.hasError {
   border: 1px solid red; }
-
-.app-title {
-  text-align: right; }
-
-@media screen and (max-width: 768px) {
-  .app-title {
-    text-align: left;
-    font-size: 2em; } }
-
-@media screen and (max-width: 500px) {
-  .app-title {
-    text-align: center; } }
 
 .selection-panel {
   transition: all 250ms; }
@@ -246,5 +225,93 @@ main {
     text-align: center; }
   .question-response {
     text-align: center; } }
+
+.logo {
+  height: 72px;
+  width: auto;
+  display: none; }
+
+.logo-sm {
+  height: 50px;
+  width: auto; }
+
+.hamburger {
+  display: inline-block; }
+
+@media screen and (min-width: 960px) {
+  .hamburger {
+    display: none; }
+  .logo {
+    display: block; }
+  .logo-sm {
+    display: none; } }
+
+.app-title {
+  position: relative;
+  bottom: 15px;
+  text-align: right;
+  font-size: 24px;
+  margin: 0;
+  line-height: 5px;
+  display: inline-block; }
+
+.menu-container {
+  text-align: right; }
+
+.hamburger {
+  font-size: 48px;
+  color: #2f2f2f;
+  margin-left: 30px; }
+
+.menu {
+  display: none;
+  padding: 0;
+  margin: 0;
+  list-style: none; }
+  .menu a {
+    font-size: 18px; }
+
+body.menu-open .hamburger {
+  color: orange; }
+
+body.menu-open .menu {
+  display: block; }
+
+@media screen and (max-width: 960px) {
+  main {
+    padding-top: 100px; }
+  #Header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500; }
+  .menu {
+    text-align: center;
+    position: fixed;
+    top: 70px;
+    right: 0;
+    left: 0;
+    background: #3f3f3f; }
+    .menu li {
+      border-bottom: 1px solid #636363; }
+    .menu a {
+      color: white;
+      display: block;
+      width: 100%;
+      padding: 10px 15px; } }
+
+@media screen and (min-width: 960px) {
+  .app-title {
+    display: block;
+    bottom: 0;
+    padding: 10px 0; }
+  .menu {
+    display: block; }
+    .menu li {
+      display: inline-block;
+      padding: 5px 10px; }
+    .menu li:last-child {
+      padding-right: 0; } }
 
 /*# sourceMappingURL=app.css.map */
