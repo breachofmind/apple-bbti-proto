@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/app.css">
 
     <script src="/static/lib.js"></script>
-    <script src="/static/src.js"></script>
+    <script src="{{elixir('static/src.js')}}"></script>
 
     @if ( Config::get('app.debug') )
         <script type="text/javascript">

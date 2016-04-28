@@ -35,5 +35,7 @@ elixir(function(mix)
 
     ], 'public/static/src.js');
 
+    mix.version('static/src.js');
+
     mix.livereload();
 });
