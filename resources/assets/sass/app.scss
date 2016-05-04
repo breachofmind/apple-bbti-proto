@@ -240,3 +240,17 @@ body.menu-open {
 		li:last-child {padding-right:0;}
 	}
 }
+
+
+.contact-form {
+	label {width:200px;}
+	.form-control {max-width:500px; width:100%;}
+	.form-control.sm {max-width:200px;}
+	.form-group {display:block; margin-bottom:15px;}
+
+	.form-group.has-error {
+		label {color:#a94442;}
+	}
+	.error-message {color:#a94442; line-height:24px; margin-left:10px;}
+
+}

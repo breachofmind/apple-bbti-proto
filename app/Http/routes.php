@@ -30,3 +30,7 @@ Route::post('evaluate', function(\Illuminate\Http\Request $request){
         'valuationType' => 'Apple Store Gift Card'
     ];
 });
+
+Route::get('contact', function() {
+    return view('contact');
+});

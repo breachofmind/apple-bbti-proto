@@ -49,7 +49,7 @@
 
 
         <div class="panel-footer">
-            <button class="btn btn-success btn-lg center-block">Continue</button>
+            <a href="/contact" class="btn btn-success btn-lg center-block">Continue</a>
         </div>
 
     </section>
