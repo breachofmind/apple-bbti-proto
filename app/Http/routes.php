@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Response;
+use App\Objects\Trade;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -33,4 +34,19 @@ Route::post('evaluate', function(\Illuminate\Http\Request $request){
 
 Route::get('contact', function() {
     return view('contact');
+});
+
+Route::get('trades', function() {
+    return view('trades');
+});
+
+Route::get('data/trades', function(){
+    return [
+        Trade::create(),
+        Trade::create(),
+        Trade::create(),
+        Trade::create(),
+        Trade::create(),
+        Trade::create(),
+    ];
 });

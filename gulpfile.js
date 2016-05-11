@@ -31,7 +31,8 @@ elixir(function(mix)
         'device.js',
         'main.js',
         'app.js',
-        'menu.js'
+        'menu.js',
+        'trades.js',
 
     ], 'public/static/src.js');
 

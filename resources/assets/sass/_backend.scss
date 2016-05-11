@@ -1,0 +1,33 @@
+.flex-table {
+	font-size:16px;
+	header:after, ol:after {content:""; clear:both; display:table;}
+	header{
+		display:block;
+		padding-bottom:5px;
+		border-bottom:5px solid #efefef;
+		div {font-weight:700;}
+	}
+	ol {margin:0; padding:0; list-style: none; display:block;}
+	ol div[data-col]:not(.no-pad)  {padding-top:30px;}
+	ol div[data-col]  {
+		&.highlight {font-weight:700;}
+	}
+	li {display:block; height:90px; border-bottom:1px solid #efefef;}
+	div[data-col] { float:left; padding:10px; }
+	img {height:auto; width:auto; max-width:60px; max-height:70px;}
+
+
+	&.clickable{
+		li {transition:background-color 200ms; cursor: pointer;}
+		li:hover {background: #f6f6f6;}
+	}
+}
+
+#TradeList {
+	div[data-col="1"] {width:13%;} // Image
+	div[data-col="2"] {width:15%;} // Date
+	div[data-col="3"] {width:22%;} // Device
+	div[data-col="4"] {width:10%;} // ID
+	div[data-col="5"] {width:10%;} // Type
+	div[data-col="6"] {width:30%; text-align:right;} // Status
+}

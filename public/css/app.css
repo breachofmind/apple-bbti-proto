@@ -336,4 +336,62 @@ body.menu-open .menu {
   line-height: 24px;
   margin-left: 10px; }
 
+.flex-table {
+  font-size: 16px; }
+  .flex-table header:after, .flex-table ol:after {
+    content: "";
+    clear: both;
+    display: table; }
+  .flex-table header {
+    display: block;
+    padding-bottom: 5px;
+    border-bottom: 5px solid #efefef; }
+    .flex-table header div {
+      font-weight: 700; }
+  .flex-table ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block; }
+  .flex-table ol div[data-col]:not(.no-pad) {
+    padding-top: 30px; }
+  .flex-table ol div[data-col].highlight {
+    font-weight: 700; }
+  .flex-table li {
+    display: block;
+    height: 90px;
+    border-bottom: 1px solid #efefef; }
+  .flex-table div[data-col] {
+    float: left;
+    padding: 10px; }
+  .flex-table img {
+    height: auto;
+    width: auto;
+    max-width: 60px;
+    max-height: 70px; }
+  .flex-table.clickable li {
+    transition: background-color 200ms;
+    cursor: pointer; }
+  .flex-table.clickable li:hover {
+    background: #f6f6f6; }
+
+#TradeList div[data-col="1"] {
+  width: 13%; }
+
+#TradeList div[data-col="2"] {
+  width: 15%; }
+
+#TradeList div[data-col="3"] {
+  width: 22%; }
+
+#TradeList div[data-col="4"] {
+  width: 10%; }
+
+#TradeList div[data-col="5"] {
+  width: 10%; }
+
+#TradeList div[data-col="6"] {
+  width: 30%;
+  text-align: right; }
+
 /*# sourceMappingURL=app.css.map */
