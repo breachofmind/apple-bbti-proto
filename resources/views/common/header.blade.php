@@ -13,7 +13,7 @@
                 <li><a href="#">iPhone</a></li>
                 <li><a href="#">iPad</a></li>
                 <li><a href="#">Non-Apple</a></li>
-                <li><a href="#" class="btn btn-primary"><i class="glyphicon glyphicon-transfer"></i> Check Status</a></li>
+                <li><a href="/trades" class="btn btn-primary"><i class="glyphicon glyphicon-transfer"></i> Check Status</a></li>
             </ul>
         </div>
     </div>

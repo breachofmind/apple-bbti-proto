@@ -20,6 +20,8 @@ elixir(function(mix)
         'underscore/underscore.js',
         'backbone/backbone.js',
         'angular/angular.js',
+        'angular-route/angular-route.js',
+        'angular-animate/angular-animate.js',
         'gsap/src/uncompressed/TweenLite.js',
         'gsap/src/uncompressed/plugins/ScrollToPlugin.js',
         'jquery-ui.js'

@@ -15,7 +15,7 @@ class Trade implements Jsonable, Arrayable
 
     protected $jsonable = ['device','date','img','id','type','status'];
 
-    public static function create()
+    public static function create($n=null)
     {
         $prop = [
             'device' => Trade::random('device'),
@@ -25,7 +25,14 @@ class Trade implements Jsonable, Arrayable
             'type' => 'Online',
             'date' => '5/10/2016',
         ];
-        return new static($prop);
+        if (is_null($n)) {
+            return new static($prop);
+        }
+        $out = [];
+        for($i=0;$i<$n;$i++) {
+            $out[] = Trade::create();
+        }
+        return $out;
     }
 
     public static function random($key)

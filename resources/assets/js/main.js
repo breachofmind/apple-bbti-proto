@@ -1,7 +1,7 @@
 (function () {
 
     // Main application.
-    var app = angular.module('app', []);
+    var app = angular.module('app', ['ngAnimate','ngRoute']);
 
     /**
      * Attaches a crsf token to all AJAX headers.
@@ -27,6 +27,14 @@
             $httpProvider.interceptors.push('httpRequestInterceptor');
         });
     }
+
+    app.config(['$routeProvider','$locationProvider', function($route,$location) {
+        $route.when('/t/:tradeId', {
+            templateUrl: '/ng/trade.html',
+            controller: 'TradeController',
+            controllerAs: 'trade'
+        })
+    }]);
 
     window.app = app;
 

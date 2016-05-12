@@ -158,7 +158,7 @@ if (!Array.prototype.find) {
 (function () {
 
     // Main application.
-    var app = angular.module('app', []);
+    var app = angular.module('app', ['ngAnimate','ngRoute']);
 
     /**
      * Attaches a crsf token to all AJAX headers.
@@ -184,6 +184,14 @@ if (!Array.prototype.find) {
             $httpProvider.interceptors.push('httpRequestInterceptor');
         });
     }
+
+    app.config(['$routeProvider','$locationProvider', function($route,$location) {
+        $route.when('/t/:tradeId', {
+            templateUrl: '/ng/trade.html',
+            controller: 'TradeController',
+            controllerAs: 'trade'
+        })
+    }]);
 
     window.app = app;
 
@@ -457,17 +465,22 @@ if (!Array.prototype.find) {
 (function (app)
 {
 
-    app.controller('TradeController', ['$scope','$http', TradeController]);
+    app.controller('TradeListController', ['$scope','$http', TradeListController]);
+    app.controller('TradeController',     ['$scope','$http', TradeController]);
 
-    function TradeController($scope,$http)
+    function TradeListController($scope,$http)
     {
         var self = this;
-        $scope.processing = true;
 
+        $scope.processing = true;
 
         this.trades = [];
 
 
+        /**
+         * Get all trades from the server.
+         * @returns void
+         */
         this.getTrades = function()
         {
             $scope.processing = true;
@@ -477,8 +490,19 @@ if (!Array.prototype.find) {
             });
         };
 
+
+
+        // Init
         this.getTrades();
     }
+
+
+
+    function TradeController($scope,$http)
+    {
+
+    }
+
 
 })(window.app);
 //# sourceMappingURL=src.js.map

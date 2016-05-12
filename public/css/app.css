@@ -369,6 +369,8 @@ body.menu-open .menu {
     width: auto;
     max-width: 60px;
     max-height: 70px; }
+  .flex-table li > a {
+    color: black; }
   .flex-table.clickable li {
     transition: background-color 200ms;
     cursor: pointer; }
@@ -376,22 +378,183 @@ body.menu-open .menu {
     background: #f6f6f6; }
 
 #TradeList div[data-col="1"] {
-  width: 13%; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="1"] {
+    float: left;
+    width: 13%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="1"] {
+    float: left;
+    width: 13%;
+    display: block; } }
 
 #TradeList div[data-col="2"] {
-  width: 15%; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="2"] {
+    float: left;
+    width: 15%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="2"] {
+    float: left;
+    width: 15%;
+    display: block; } }
 
 #TradeList div[data-col="3"] {
-  width: 22%; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="3"] {
+    float: left;
+    width: 22%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="3"] {
+    float: left;
+    width: 22%;
+    display: block; } }
 
 #TradeList div[data-col="4"] {
-  width: 10%; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="4"] {
+    float: left;
+    width: 10%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="4"] {
+    float: left;
+    width: 10%;
+    display: block; } }
 
 #TradeList div[data-col="5"] {
-  width: 10%; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="5"] {
+    float: left;
+    width: 10%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="5"] {
+    float: left;
+    width: 10%;
+    display: block; } }
 
 #TradeList div[data-col="6"] {
-  width: 30%;
-  text-align: right; }
+  display: inline-block;
+  float: none; }
+
+@media screen and (min-width: 768px) {
+  #TradeList div[data-col="6"] {
+    float: left;
+    width: 30%;
+    display: block; } }
+
+@media screen and (min-width: 960px) {
+  #TradeList div[data-col="6"] {
+    float: left;
+    width: 30%;
+    display: block; } }
+
+#TradeView .window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 700px;
+  background: white;
+  display: block;
+  z-index: 1000; }
+
+#TradeView .overlay {
+  position: fixed;
+  z-index: 900;
+  display: block;
+  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0; }
+
+@media screen and (max-width: 768px) {
+  #TradeView .window {
+    width: calc(100% - 50px); } }
+
+#TradeView.animate.ng-enter {
+  transition-duration: 800ms; }
+
+#TradeView.animate.ng-leave {
+  transition-duration: 300ms; }
+
+#TradeView.animate.ng-enter .window, #TradeView.animate.ng-leave .window {
+  -webkit-transform: translateX(0);
+  transform: translateX(0); }
+
+#TradeView.animate.ng-enter .window {
+  -webkit-transform: translateX(-700px);
+  transform: translateX(-700px); }
+
+#TradeView.animate.ng-enter .overlay {
+  opacity: 0; }
+
+#TradeView.animate.ng-enter.ng-enter-active .window {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  transition: -webkit-transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1); }
+
+#TradeView.animate.ng-enter.ng-enter-active .overlay {
+  transition: opacity 300ms;
+  opacity: 1; }
+
+#TradeView.animate.ng-leave.ng-leave-active .window {
+  -webkit-transform: translateX(-700px);
+  transform: translateX(-700px);
+  transition: -webkit-transform 200ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: transform 200ms cubic-bezier(0.55, 0.085, 0.68, 0.53); }
+
+#TradeView.animate.ng-leave.ng-leave-active .overlay {
+  transition: opacity 300ms;
+  opacity: 0; }
+
+.trade-overview {
+  display: block;
+  background: #1e1e1e;
+  padding: 30px; }
+  .trade-overview .actions {
+    text-align: right; }
+  .trade-overview h1 {
+    margin-bottom: 30px; }
+  .trade-overview h1 > span {
+    color: white;
+    font-size: 24px;
+    display: block; }
+  .trade-overview h1 > span.device-name {
+    font-size: 16px;
+    margin-bottom: 10px; }
+  .trade-overview h1 > span.trade-status {
+    color: orange; }
+  .trade-overview p {
+    color: #c3c3c3; }
+
+.trade-body {
+  padding: 30px; }
 
 /*# sourceMappingURL=app.css.map */

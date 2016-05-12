@@ -1,17 +1,22 @@
 (function (app)
 {
 
-    app.controller('TradeController', ['$scope','$http', TradeController]);
+    app.controller('TradeListController', ['$scope','$http', TradeListController]);
+    app.controller('TradeController',     ['$scope','$http', TradeController]);
 
-    function TradeController($scope,$http)
+    function TradeListController($scope,$http)
     {
         var self = this;
-        $scope.processing = true;
 
+        $scope.processing = true;
 
         this.trades = [];
 
 
+        /**
+         * Get all trades from the server.
+         * @returns void
+         */
         this.getTrades = function()
         {
             $scope.processing = true;
@@ -21,7 +26,18 @@
             });
         };
 
+
+
+        // Init
         this.getTrades();
     }
+
+
+
+    function TradeController($scope,$http)
+    {
+
+    }
+
 
 })(window.app);

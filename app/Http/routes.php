@@ -41,12 +41,5 @@ Route::get('trades', function() {
 });
 
 Route::get('data/trades', function(){
-    return [
-        Trade::create(),
-        Trade::create(),
-        Trade::create(),
-        Trade::create(),
-        Trade::create(),
-        Trade::create(),
-    ];
+    return Trade::create(5);
 });

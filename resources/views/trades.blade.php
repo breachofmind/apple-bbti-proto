@@ -2,6 +2,10 @@
 
 @section('content')
 
+
+    <div ng-view id="TradeView" class="animate"></div>
+
+
     <section class="panel panel-default table-panel">
         <div class="panel-heading">
             <h2>My Trades</h2>
@@ -9,7 +13,7 @@
 
         <div class="panel-body">
 
-            <div id="TradeList" class="flex-table clickable" ng-controller="TradeController as tradeCtrl">
+            <div id="TradeList" class="flex-table clickable" ng-controller="TradeListController as list">
                 <header>
                     <div data-col="1">Image</div>
                     <div data-col="2">Date</div>
@@ -21,30 +25,32 @@
 
                 <ol>
 
-                    <li class="trade-item" ng-repeat="trade in tradeCtrl.trades">
-                        <div class="trade-image no-pad" data-col="1">
-                            <img ng-src="@{{ trade.img }}" alt="Trade image">
-                        </div>
+                    <li class="trade-item" ng-repeat="(i,trade) in list.trades">
+                        <a href="#t/@{{trade.id}}">
+                            <div class="trade-image no-pad" data-col="1">
+                                <img ng-src="@{{ trade.img }}" alt="Trade image">
+                            </div>
 
-                        <div class="trade-date" data-col="2">
-                            @{{ trade.date }}
-                        </div>
+                            <div class="trade-date" data-col="2">
+                                @{{ trade.date }}
+                            </div>
 
-                        <div class="trade-device highlight" data-col="3">
-                            @{{ trade.device }}
-                        </div>
+                            <div class="trade-device highlight" data-col="3">
+                                @{{ trade.device }}
+                            </div>
 
-                        <div class="trade-id" data-col="4">
-                            @{{ trade.id }}
-                        </div>
+                            <div class="trade-id" data-col="4">
+                                @{{ trade.id }}
+                            </div>
 
-                        <div class="trade-type" data-col="5">
-                            @{{ trade.type }}
-                        </div>
+                            <div class="trade-type" data-col="5">
+                                @{{ trade.type }}
+                            </div>
 
-                        <div class="trade-status" data-col="6">
-                            @{{ trade.status }}
-                        </div>
+                            <div class="trade-status" data-col="6">
+                                @{{ trade.status }}
+                            </div>
+                        </a>
                     </li>
                 </ol>
             </div>
