@@ -52,6 +52,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        include resource_path('helpers.php');
+
         foreach ($this->build as $model=>$capacities) {
             foreach($capacities as $capacity=>$colors) {
                 foreach($colors as $color) {

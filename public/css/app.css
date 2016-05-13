@@ -343,7 +343,7 @@ body.menu-open .menu {
     clear: both;
     display: table; }
   .flex-table header {
-    display: block;
+    display: none;
     padding-bottom: 5px;
     border-bottom: 5px solid #efefef; }
     .flex-table header div {
@@ -376,6 +376,9 @@ body.menu-open .menu {
     cursor: pointer; }
   .flex-table.clickable li:hover {
     background: #f6f6f6; }
+  @media screen and (min-width: 768px) {
+    .flex-table header {
+      display: block; } }
 
 #TradeList div[data-col="1"] {
   display: inline-block;
@@ -384,7 +387,7 @@ body.menu-open .menu {
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="1"] {
     float: left;
-    width: 13%;
+    width: 10%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
@@ -416,7 +419,7 @@ body.menu-open .menu {
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="3"] {
     float: left;
-    width: 22%;
+    width: 30%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
@@ -432,7 +435,7 @@ body.menu-open .menu {
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="4"] {
     float: left;
-    width: 10%;
+    width: 15%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
@@ -447,9 +450,7 @@ body.menu-open .menu {
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="5"] {
-    float: left;
-    width: 10%;
-    display: block; } }
+    display: none; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="5"] {

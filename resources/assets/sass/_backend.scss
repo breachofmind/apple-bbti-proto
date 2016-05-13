@@ -2,7 +2,7 @@
 	font-size:16px;
 	header:after, ol:after {content:""; clear:both; display:table;}
 	header{
-		display:block;
+		display:none;
 		padding-bottom:5px;
 		border-bottom:5px solid #efefef;
 		div {font-weight:700;}
@@ -21,7 +21,14 @@
 		li {transition:background-color 200ms; cursor: pointer;}
 		li:hover {background: #f6f6f6;}
 	}
+
+	@media screen and (min-width:768px)
+	{
+		header {display:block;}
+	}
 }
+
+
 
 @mixin div-col-size($n, $num)
 {
@@ -49,12 +56,13 @@
 }
 
 #TradeList {
-	@include div-col(1, inline-block, 1.3, 1.3); // Image
+	@include div-col(1, inline-block, 1, 1.3); // Image
 	@include div-col(2, inline-block, 1.5, 1.5); // Date
-	@include div-col(3, inline-block, 2.2, 2.2); // Device
-	@include div-col(4, inline-block, 1, 1); // ID
-	@include div-col(5, inline-block, 1, 1); // Type
+	@include div-col(3, inline-block, 3, 2.2); // Device
+	@include div-col(4, inline-block, 1.5, 1); // ID
+	@include div-col(5, inline-block, 0, 1); // Type
 	@include div-col(6, inline-block, 3, 3); // Status
+
 
 }
 

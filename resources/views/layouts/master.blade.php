@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/app.css">
 
-    <script src="/static/lib.js"></script>
+    <script src="{{cache_bust('static/lib.js')}}"></script>
     <script src="{{elixir('static/src.js')}}"></script>
 
     @if ( Config::get('app.debug') )
