@@ -2,7 +2,7 @@
 {
 
     app.controller('TradeListController', ['$scope','$http', TradeListController]);
-    app.controller('TradeController',     ['$scope','$http', TradeController]);
+    app.controller('TradeController',     ['$scope','$http','$location', TradeController]);
 
     function TradeListController($scope,$http)
     {
@@ -34,9 +34,12 @@
 
 
 
-    function TradeController($scope,$http)
+    function TradeController($scope,$http,$location)
     {
-
+        $scope.go = function(path)
+        {
+            $location.path(path);
+        }
     }
 
 
