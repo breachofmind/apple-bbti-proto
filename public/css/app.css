@@ -353,17 +353,15 @@ body.menu-open .menu {
     padding: 0;
     list-style: none;
     display: block; }
-  .flex-table ol div[data-col]:not(.no-pad) {
-    padding-top: 30px; }
   .flex-table ol div[data-col].highlight {
     font-weight: 700; }
   .flex-table li {
     display: block;
     height: 90px;
-    border-bottom: 1px solid #efefef; }
-  .flex-table div[data-col] {
-    float: left;
+    border-bottom: 1px solid #efefef;
     padding: 10px; }
+  .flex-table div[data-col] {
+    float: left; }
   .flex-table img {
     height: auto;
     width: auto;
@@ -378,75 +376,64 @@ body.menu-open .menu {
     background: #f6f6f6; }
   @media screen and (min-width: 768px) {
     .flex-table header {
-      display: block; } }
+      display: block; }
+    .flex-table ol div[data-col]:not(.no-pad) {
+      padding-top: 20px; } }
 
 #TradeList div[data-col="1"] {
-  display: inline-block;
-  float: none; }
+  display: block; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="1"] {
-    float: left;
     width: 10%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="1"] {
-    float: left;
     width: 13%;
     display: block; } }
 
 #TradeList div[data-col="2"] {
-  display: inline-block;
-  float: none; }
+  display: block; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="2"] {
-    float: left;
     width: 15%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="2"] {
-    float: left;
     width: 15%;
     display: block; } }
 
 #TradeList div[data-col="3"] {
-  display: inline-block;
-  float: none; }
+  display: block; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="3"] {
-    float: left;
     width: 30%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="3"] {
-    float: left;
     width: 22%;
     display: block; } }
 
 #TradeList div[data-col="4"] {
-  display: inline-block;
-  float: none; }
+  display: block; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="4"] {
-    float: left;
     width: 15%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="4"] {
-    float: left;
     width: 10%;
     display: block; } }
 
 #TradeList div[data-col="5"] {
-  display: inline-block;
-  float: none; }
+  display: none; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="5"] {
@@ -454,25 +441,39 @@ body.menu-open .menu {
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="5"] {
-    float: left;
     width: 10%;
     display: block; } }
 
 #TradeList div[data-col="6"] {
-  display: inline-block;
-  float: none; }
+  display: block; }
 
 @media screen and (min-width: 768px) {
   #TradeList div[data-col="6"] {
-    float: left;
     width: 30%;
     display: block; } }
 
 @media screen and (min-width: 960px) {
   #TradeList div[data-col="6"] {
-    float: left;
     width: 30%;
     display: block; } }
+
+@media screen and (max-width: 768px) {
+  #TradeList div[data-col] {
+    font-size: 14px; }
+  #TradeList div.trade-image {
+    width: 70px; }
+  #TradeList div.trade-date {
+    width: 80px; }
+    #TradeList div.trade-date:after {
+      content: " - "; }
+  #TradeList div.trade-device {
+    width: calc(100% - 150px); }
+  #TradeList div.trade-id {
+    width: calc(100% - 80px); }
+    #TradeList div.trade-id:before {
+      content: "ID: "; }
+  #TradeList div.trade-status {
+    width: calc(100% - 80px); } }
 
 #TradeView .window {
   position: fixed;
