@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Route::get('devices', function() {
     return response(\App\Objects\Device::getRespository(),200, [
-        'Content-Type' => 'application/json'
+        'Content-Type' => 'application/json',
+        'Access-Control-Allow-Origin' => '*'
     ]);
 });
 
@@ -41,5 +42,8 @@ Route::get('trades', function() {
 });
 
 Route::get('data/trades', function(){
-    return Trade::create(5);
+    return response(Trade::create(5),200,[
+        'Content-Type' => 'application/json',
+        'Access-Control-Allow-Origin' => '*'
+    ]);
 });
