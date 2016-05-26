@@ -17,12 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('devices', function() {
-    header("Access-Control-Allow-Origin: *");
-    return response(\App\Objects\Device::getRespository(),200, [
-        'Content-Type' => 'application/json'
-    ]);
-});
+
 
 Route::post('evaluate', function(\Illuminate\Http\Request $request){
 
@@ -41,9 +36,5 @@ Route::get('trades', function() {
     return view('trades');
 });
 
-Route::get('data/trades', function(){
-    header("Access-Control-Allow-Origin: *");
-    return response(Trade::create(5),200,[
-        'Content-Type' => 'application/json'
-    ]);
-});
+Route::get('data/devices', 'DataController@getDevices');
+Route::get('data/trades', 'DataController@getTrades');

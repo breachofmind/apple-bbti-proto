@@ -410,7 +410,7 @@ if (!Array.prototype.find) {
 
 
         // Do the deed.
-        $http.get('/devices', null).success(function(data){
+        $http.get('/data/devices', null).success(function(data){
 
             lookup.reset(data);
             $scope["options_"+steps[0]] = lookup.unique(steps[0]).toJSON();
