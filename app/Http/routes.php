@@ -36,5 +36,5 @@ Route::get('trades', function() {
     return view('trades');
 });
 
-Route::get('data/devices', 'DataController@getDevices');
-Route::get('data/trades', 'DataController@getTrades');
+Route::match(['get','options'], 'data/devices', 'DataController@getDevices');
+Route::match(['get','options'], 'data/trades',  'DataController@getTrades');
